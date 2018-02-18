@@ -1,6 +1,8 @@
 package com.ubs.tiagoportela.messenger_ubs.models;
 
+import com.ubs.tiagoportela.messenger_ubs.enums.MessageType;
 import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class Message {
 
@@ -13,11 +15,11 @@ public class Message {
     @NotEmpty
     private String value;
 
-    @NotEmpty
-    private String type;
+    @NotNull
+    private MessageType type;
 
     public Message() {}
-    public Message(String test, String test1, String test2, String test3) {
+    public Message(String test, String test1, String test2, MessageType test3) {
         sender = test;
         receiver = test1;
         value = test2;
@@ -48,11 +50,11 @@ public class Message {
         this.value = value;
     }
 
-    public String getType() {
+    public MessageType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(MessageType type) {
         this.type = type;
     }
 }
