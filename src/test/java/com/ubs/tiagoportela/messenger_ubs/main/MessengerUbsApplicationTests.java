@@ -1,4 +1,4 @@
-package com.ubs.tiagoportela.messenger_ubs;
+package com.ubs.tiagoportela.messenger_ubs.main;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
