@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Message {
 
+    private static final String TO_STRING_FORMAT = "[Sender: %s, Receiver: %s, Value: %s, Type: %s]";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -26,12 +28,9 @@ public class Message {
     @Enumerated(EnumType.STRING)
     private MessageType type;
 
-    public Message() {}
-    public Message(String test, String test1, String test2, MessageType test3) {
-        sender = test;
-        receiver = test1;
-        value = test2;
-        type = test3;
+    @Override
+    public String toString() {
+        return String.format(TO_STRING_FORMAT, sender, receiver, value, type.getDescription());
     }
 
     public String getSender() {

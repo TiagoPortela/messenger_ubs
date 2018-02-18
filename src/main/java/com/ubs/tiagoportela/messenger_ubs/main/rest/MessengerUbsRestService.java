@@ -1,6 +1,5 @@
 package com.ubs.tiagoportela.messenger_ubs.main.rest;
 
-import com.ubs.tiagoportela.messenger_ubs.enums.MessageType;
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
 import com.ubs.tiagoportela.messenger_ubs.repository.MessageRepository;
 import org.slf4j.Logger;
@@ -15,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class MessengerUbsRestService {
@@ -27,14 +28,23 @@ public class MessengerUbsRestService {
     @PostMapping("/sendMessage")
     public ResponseEntity<Message> sendMessage(@RequestBody @Valid Message message, HttpServletRequest request) {
         logger.info("Incoming message sending request from " + request.getRemoteAddr());
-        logger.info("Message: " + message);
+
         messageRepository.save(message);
+        logger.info("Sent Message: " + message);
+
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
     @GetMapping("/fetchAllSentMessages")
-    public ResponseEntity<Message> fetchAllSentMessages() {
-        logger.info("Testing #############################");
-        return new ResponseEntity<>(new Message("test", "test", "test", MessageType.SMS), HttpStatus.OK);
+    public ResponseEntity<List<Message>> fetchAllSentMessages(HttpServletRequest request) {
+        logger.info("Incoming message fetching request from " + request.getRemoteAddr());
+
+        List<Message> fetchedMessages = new ArrayList<>();
+        messageRepository.findAll().forEach(m -> {
+            logger.info("Fetched Message: " + m.toString());
+            fetchedMessages.add(m);
+        });
+
+        return new ResponseEntity<>(fetchedMessages, HttpStatus.OK);
     }
 }
