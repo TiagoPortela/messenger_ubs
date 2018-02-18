@@ -2,9 +2,16 @@ package com.ubs.tiagoportela.messenger_ubs.models;
 
 import com.ubs.tiagoportela.messenger_ubs.enums.MessageType;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Message {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @NotEmpty
     private String sender;
@@ -16,6 +23,7 @@ public class Message {
     private String value;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     private MessageType type;
 
     public Message() {}
