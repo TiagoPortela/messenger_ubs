@@ -1,6 +1,5 @@
 package com.ubs.tiagoportela.messenger_ubs.services;
 
-import com.ubs.tiagoportela.messenger_ubs.main.rest.MessengerUbsRestService;
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
 import com.ubs.tiagoportela.messenger_ubs.repository.MessageRepository;
 import org.slf4j.Logger;

@@ -1,7 +1,6 @@
 package com.ubs.tiagoportela.messenger_ubs.validators;
 
 import com.ubs.tiagoportela.messenger_ubs.constraints.ValidEmailAddress;
-import com.ubs.tiagoportela.messenger_ubs.constraints.ValidPhoneNumber;
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

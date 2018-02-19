@@ -1,7 +1,6 @@
 package com.ubs.tiagoportela.messenger_ubs.main.rest;
 
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
-import com.ubs.tiagoportela.messenger_ubs.repository.MessageRepository;
 import com.ubs.tiagoportela.messenger_ubs.services.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 @RestController
 public class MessengerUbsRestService {
