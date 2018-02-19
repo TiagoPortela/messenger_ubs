@@ -1,15 +1,15 @@
 package com.ubs.tiagoportela.messenger_ubs.main;
 
-import org.junit.Test;
+import com.ubs.tiagoportela.messenger_ubs.repositories.MessageRepositoryTest;
+import com.ubs.tiagoportela.messenger_ubs.rest.MessengerUbsRestServiceTest;
+import com.ubs.tiagoportela.messenger_ubs.services.SimpleMessageServiceTest;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.runners.Suite;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class MessengerUbsApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
-}
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+		MessageRepositoryTest.class,
+		SimpleMessageServiceTest.class,
+		MessengerUbsRestServiceTest.class
+})
+public class MessengerUbsApplicationTests {}

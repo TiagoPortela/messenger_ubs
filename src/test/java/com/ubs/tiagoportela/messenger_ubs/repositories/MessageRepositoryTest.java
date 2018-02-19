@@ -1,9 +1,10 @@
-package com.ubs.tiagoportela.messenger_ubs.main;
+package com.ubs.tiagoportela.messenger_ubs.repositories;
 
 import com.ubs.tiagoportela.messenger_ubs.enums.MessageType;
+import com.ubs.tiagoportela.messenger_ubs.main.MessengerUbsApplication;
+import com.ubs.tiagoportela.messenger_ubs.main.MessengerUbsApplicationTests;
 import com.ubs.tiagoportela.messenger_ubs.models.EmailMessage;
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
-import com.ubs.tiagoportela.messenger_ubs.repositories.MessageRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
