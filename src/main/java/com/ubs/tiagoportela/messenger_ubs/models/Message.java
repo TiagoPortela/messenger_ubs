@@ -1,5 +1,7 @@
 package com.ubs.tiagoportela.messenger_ubs.models;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.ubs.tiagoportela.messenger_ubs.enums.MessageType;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -7,9 +9,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Message {
-
-    private static final String TO_STRING_FORMAT = "[Sender: %s, Receiver: %s, Value: %s, Type: %s]";
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = EmailMessage.class, name = "EMAIL"),
+        @JsonSubTypes.Type(value = SmsMessage.class, name = "SMS"),
+})
+public abstract class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,11 +32,6 @@ public class Message {
     @NotNull
     @Enumerated(EnumType.STRING)
     private MessageType type;
-
-    @Override
-    public String toString() {
-        return String.format(TO_STRING_FORMAT, sender, receiver, value, type.getDescription());
-    }
 
     public String getSender() {
         return sender;
