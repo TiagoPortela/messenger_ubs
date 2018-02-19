@@ -1,7 +1,7 @@
 package com.ubs.tiagoportela.messenger_ubs.services;
 
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
-import com.ubs.tiagoportela.messenger_ubs.repository.MessageRepository;
+import com.ubs.tiagoportela.messenger_ubs.repositories.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.ubs")
-@EnableJpaRepositories("com.ubs.tiagoportela.messenger_ubs.repository")
+@EnableJpaRepositories("com.ubs.tiagoportela.messenger_ubs.repositories")
 @EntityScan("com.ubs.tiagoportela.messenger_ubs.models")
 public class MessengerUbsApplication {
 
