@@ -1,4 +1,4 @@
-package com.ubs.tiagoportela.messenger_ubs.repositories;
+package com.ubs.tiagoportela.messenger_ubs.main.repositories;
 
 
 import com.ubs.tiagoportela.messenger_ubs.models.Message;
